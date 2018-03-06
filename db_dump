@@ -1,0 +1,10 @@
+#!/bin/bash
+BACKUP_FILE=/work/DBDumps/local1.optiedge.com_bkup.`date +"%Y%m%d-%H%M%S"`
+echo "pg_dump -U ioptibizproduction multi_tenant_production -h localhost -O -x -C | gzip  >  $BACKUP_FILE .gz"
+pg_dump -U ioptibizproduction multi_tenant_production -n birlasoft -h localhost -O -x -c  | gzip > $BACKUP_FILE.gz
+if [ $?  -eq 0  ]
+then
+   echo "Database Dump has been created succesffully in $BACKUP_FILE"
+else
+   echo "ERROR: Problem in taking database dump"
+fi
