@@ -1,6 +1,6 @@
 ---
 - hosts: tomcatservers
-  become: yes
+  become: yes test
   gather_facts: False
   tasks:
 
